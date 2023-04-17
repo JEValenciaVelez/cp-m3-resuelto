@@ -4,9 +4,16 @@ const controller = require('../controllers/controllers');
 // No modifiques nada arriba de esta línea
 
 // Escribe la lógica de las rutas acá
-// router.delete('/accessories', (req, res) => {
+ router.delete('/accessories', (req, res) => {
    
-// });
+    const { id } = req.body;
+    try {
+      res.status(200).send({message: controller.deleteAccessory(id)});
+    } catch (error) {
+      res.status(404).send({ error: error.message });
+    }
+  });
+
 
 
 
